@@ -48,8 +48,10 @@
     }
 
     .logo {
-      font-size: clamp(3.5rem, 12vw, 7rem);
-      line-height: 1;
+      width: clamp(7rem, 22vw, 11rem);
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid rgba(124, 247, 107, 0.5);
       filter: drop-shadow(0 0 24px rgba(124, 247, 107, 0.35));
       animation: float 4s ease-in-out infinite;
     }
@@ -103,6 +105,34 @@
       color: var(--muted);
     }
 
+    .socials {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      background: rgba(124, 247, 107, 0.12);
+    }
+
+    .socials svg { width: 1.3rem; height: 1.3rem; fill: currentColor; }
+
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -113,12 +143,27 @@
 </head>
 <body>
   <main>
-    <div class="logo" aria-hidden="true">👹</div>
+    <img class="logo" src="/Pfp.png" alt="Gremlin Makes Games logo" width="374" height="374" />
     <h1>Gremlin Makes Games</h1>
-    <p class="tagline">An indie studio making mischief, one game at a time.</p>
+    <p class="tagline">A gremlin that makes games.</p>
 
     <p class="games-label">Now playing</p>
-    <a class="cta" href="/clapback/">Play Clapback →</a>
+    <a class="cta" href="/clapback/">Clapback →</a>
+
+    <nav class="socials" aria-label="Social media">
+      <a href="https://bsky.app/profile/gremlinmakesgames.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8C10.9 8.6 7.8 4.6 5 2.6 2.3.7 1.3 1 .6 1.3.2 1.5 0 2.1 0 2.7c0 .6.3 5.2.6 6C1.4 10.9 3.4 11.4 5.2 11c-2.7.4-5 1.4-2 4.8 3.4 3.6 4.6-.8 5.2-3 .3-1 .4-1.5.6-1.5.2 0 .3.5.6 1.5.6 2.2 1.8 6.6 5.2 3 3-3.4.7-4.4-2-4.8 1.8.4 3.8-.1 4.6-2.3.3-.8.6-5.4.6-6 0-.6-.2-1.2-.6-1.4-.7-.3-1.7-.6-4.4 1.3-2.8 2-5.9 6-7 8.2z"/></svg>
+      </a>
+      <a href="https://x.com/Gremlinmakegame" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.2h3.7l-8 9.1L24 22.8h-7.4l-5.8-7.6-6.6 7.6H.5l8.6-9.8L0 1.2h7.6l5.2 6.9 6.1-6.9zm-1.3 19.4h2L6.5 3.3H4.4l13.2 17.3z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@GremlinMakesGame" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@gremlin.makes.game" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a4.8 4.8 0 0 1-1-.1 4.9 4.9 0 0 1-3.7-4.2V1h-3.3v13.4a2.9 2.9 0 1 1-2-2.8V8.2a6.2 6.2 0 1 0 5.3 6.1V7.7a8.2 8.2 0 0 0 4.7 1.5V5.8z"/></svg>
+      </a>
+    </nav>
   </main>
 
   <footer>
