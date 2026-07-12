@@ -143,6 +143,68 @@
     .feature h3 { margin-top: 0.75rem; font-size: 1.1rem; }
     .feature p { margin-top: 0.4rem; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
 
+    .signup {
+      margin-top: 4rem;
+      width: 100%;
+      max-width: 34rem;
+      scroll-margin-top: 2rem;
+    }
+
+    .signup h2 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+    }
+
+    .signup p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .signup-form {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .signup-form input[type="email"] {
+      flex: 1 1 12rem;
+      padding: 0.9rem 1.1rem;
+      font-size: 1rem;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .signup-form input[type="email"]::placeholder { color: var(--muted); }
+    .signup-form input[type="email"]:focus { border-color: var(--accent); }
+
+    .signup-form button {
+      padding: 0.9rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0d0b1a;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      box-shadow: 0 8px 30px rgba(255, 92, 138, 0.3);
+    }
+    .signup-form button:hover:not(:disabled) { transform: translateY(-2px) scale(1.03); }
+    .signup-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .form-status {
+      margin-top: 0.9rem;
+      min-height: 1.2rem;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+    .form-status.success { color: var(--accent); }
+    .form-status.error { color: #ff6b6b; }
+
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -163,7 +225,7 @@
 
     <div class="buttons">
       <a class="btn btn-primary" href="#" aria-label="Play Clapback (coming soon)">Play Now</a>
-      <a class="btn btn-ghost" href="#wishlist">Wishlist</a>
+      <a class="btn btn-ghost" href="#signup">Notify Me</a>
     </div>
 
     <section class="features">
@@ -183,6 +245,17 @@
         <p>Chase high scores and bragging rights.</p>
       </div>
     </section>
+
+    <section class="signup" id="signup">
+      <h2>Get notified at launch</h2>
+      <p>Drop your email and we'll ping you the moment Clapback goes live. No spam, just gremlins.</p>
+
+      <form class="signup-form" id="signup-form" action="https://formspree.io/f/mjgnbnge" method="POST">
+        <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" required />
+        <button type="submit">Notify Me</button>
+      </form>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </section>
   </main>
 
   <footer>
@@ -191,6 +264,41 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("signup-form");
+    const status = document.getElementById("form-status");
+    const button = form.querySelector("button");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.className = "form-status";
+      status.textContent = "";
+      button.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (res.ok) {
+          form.reset();
+          status.className = "form-status success";
+          status.textContent = "You're on the list! We'll be in touch.";
+        } else {
+          const data = await res.json().catch(() => ({}));
+          const msg = data.errors ? data.errors.map((x) => x.message).join(", ") : "Something went wrong. Try again.";
+          status.className = "form-status error";
+          status.textContent = msg;
+        }
+      } catch (err) {
+        status.className = "form-status error";
+        status.textContent = "Network error. Please try again.";
+      } finally {
+        button.disabled = false;
+      }
+    });
   </script>
 </body>
 </html>
