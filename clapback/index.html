@@ -81,14 +81,6 @@
       color: transparent;
     }
 
-    .tagline {
-      margin-top: 1rem;
-      max-width: 38rem;
-      color: var(--muted);
-      font-size: clamp(1rem, 2.5vw, 1.35rem);
-      line-height: 1.6;
-    }
-
     .buttons {
       margin-top: 2.5rem;
       display: flex;
@@ -121,27 +113,6 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .btn-ghost:hover { transform: translateY(-3px); border-color: var(--accent); }
-
-    .features {
-      margin-top: 4rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem;
-      max-width: 52rem;
-      width: 100%;
-    }
-
-    .feature {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      text-align: left;
-    }
-
-    .feature .icon { font-size: 1.75rem; }
-    .feature h3 { margin-top: 0.75rem; font-size: 1.1rem; }
-    .feature p { margin-top: 0.4rem; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
 
     .signup {
       margin-top: 4rem;
@@ -221,30 +192,11 @@
   <main>
     <div class="logo" aria-hidden="true">👏</div>
     <h1>Clapback</h1>
-    <p class="tagline">The latest game from Gremlin Makes Games. Quick wits, quicker comebacks — snap back before the beat drops.</p>
 
     <div class="buttons">
-      <a class="btn btn-primary" href="#" aria-label="Play Clapback (coming soon)">Play Now</a>
-      <a class="btn btn-ghost" href="#signup">Notify Me</a>
+      <a class="btn btn-primary" href="#demo" aria-label="Play the Clapback demo">Play Demo</a>
+      <a class="btn btn-ghost" href="#signup">Wishlist</a>
     </div>
-
-    <section class="features">
-      <div class="feature">
-        <div class="icon" aria-hidden="true">⚡</div>
-        <h3>Fast-paced</h3>
-        <p>Reflex-driven rounds that never let up.</p>
-      </div>
-      <div class="feature">
-        <div class="icon" aria-hidden="true">🎭</div>
-        <h3>Full of attitude</h3>
-        <p>A cast of gremlins with plenty to say.</p>
-      </div>
-      <div class="feature">
-        <div class="icon" aria-hidden="true">🏆</div>
-        <h3>Climb the ranks</h3>
-        <p>Chase high scores and bragging rights.</p>
-      </div>
-    </section>
 
     <section class="signup" id="signup">
       <h2>Get notified at launch</h2>
