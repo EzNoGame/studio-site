@@ -54,13 +54,13 @@
       border: 3px solid rgba(124, 247, 107, 0.5);
       filter: drop-shadow(0 0 24px rgba(124, 247, 107, 0.35));
       will-change: transform;
-      animation: float 5s ease-in-out infinite;
+      animation: zoom 4s ease-in-out infinite;
     }
 
-    @keyframes float {
-      0%   { transform: translate3d(0, 0, 0); }
-      50%  { transform: translate3d(0, -10px, 0); }
-      100% { transform: translate3d(0, 0, 0); }
+    @keyframes zoom {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.08); }
+      100% { transform: scale(1); }
     }
 
     @media (prefers-reduced-motion: reduce) {
