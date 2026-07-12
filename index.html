@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gremlin Makes Games</title>
+  <meta name="description" content="Gremlin Makes Games — an indie game studio making mischief, one game at a time." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Gremlin Makes Games" />
+  <meta property="og:description" content="An indie game studio making mischief, one game at a time." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gremlinmakesgames.com" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👹</text></svg>" />
+
+  <style>
+    :root {
+      --bg: #0d0b1a;
+      --bg-2: #16122b;
+      --accent: #7cf76b;
+      --accent-2: #b46bff;
+      --text: #f2f0ff;
+      --muted: #a39fc4;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 20% 20%, var(--bg-2), var(--bg) 60%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .logo {
+      font-size: clamp(3.5rem, 12vw, 7rem);
+      line-height: 1;
+      filter: drop-shadow(0 0 24px rgba(124, 247, 107, 0.35));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    h1 {
+      margin-top: 1.25rem;
+      font-size: clamp(2rem, 7vw, 4rem);
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      margin-top: 1rem;
+      max-width: 34rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 2.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0d0b1a;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 8px 30px rgba(124, 247, 107, 0.25);
+    }
+
+    .cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 40px rgba(180, 107, 255, 0.4); }
+    .cta:active { transform: translateY(0) scale(1); }
+
+    .games-label {
+      margin-top: 3.5rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="logo" aria-hidden="true">👹</div>
+    <h1>Gremlin Makes Games</h1>
+    <p class="tagline">An indie studio making mischief, one game at a time.</p>
+
+    <p class="games-label">Now playing</p>
+    <a class="cta" href="/clapback/">Play Clapback →</a>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Gremlin Makes Games. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
